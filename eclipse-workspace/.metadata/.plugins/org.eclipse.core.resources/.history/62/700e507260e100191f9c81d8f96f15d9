@@ -1,0 +1,119 @@
+package DesignPattern;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Point;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.Border;
+
+public class myFrame extends JFrame {
+public static String buttonName;
+public myFrame() {
+		
+		setTitle("HW1 GUI");
+		setSize(800,500);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+	}
+
+	public static void main(String[] args) {
+		
+		JFrame frame= new myFrame();
+		JPanel buttonPanel= new JPanel();
+		JPanel drawingAreaPanel= new drawingPanel();
+		
+		
+		Border buttonBorder=BorderFactory.createLineBorder(Color.BLACK,5,true);
+		JButton circleButton= new JButton("Cirlce");
+		circleButton.setPreferredSize(new Dimension(200,70));
+	    JButton rectangleButton= new JButton("Rectangle");
+	    rectangleButton.setPreferredSize(new Dimension(200,70));
+		
+		buttonPanel.add(circleButton);
+		buttonPanel.add(rectangleButton);
+		
+		buttonPanel.setBackground(Color.GRAY);
+		buttonPanel.setPreferredSize(new Dimension(240,500));
+		
+		frame.add(buttonPanel, BorderLayout.WEST);
+		frame.add(drawingAreaPanel);
+		
+		
+		ActionListener listener=new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent AE) {
+				 buttonName=AE.getActionCommand();
+				/*
+				if(AE.getActionCommand().equals("Rectangle")) {
+					shapeSelected="Rectangle";
+					System.out.println("Rectangle");
+				}
+				
+				else {
+					System.out.println("Circle");
+					shapeSelected="Circle";
+			
+				}
+				*/
+				
+				
+			}
+			
+		};
+		rectangleButton.addActionListener(listener);
+		circleButton.addActionListener(listener);
+		
+		
+	
+		
+		drawingAreaPanel.addMouseListener((MouseListener) drawingAreaPanel);
+		
+	
+		frame.show();
+		
+
+	}
+
+}
+class drawingPanel extends JPanel
+{
+	Point point=null;
+	public drawingPanel() {
+		  addMouseListener(new MouseAdapter(){ 
+			  @Override
+			  public void mousePressed(MouseEvent e)  
+		  { point = new Point(e.getX(), e.getY());               
+		  repaint();        
+		  }  });
+	}
+	
+	
+	
+	 @Override     
+	 public void paintComponent(Graphics g) 
+	 {        
+		 super.paintComponent(g);       
+		 if(point!=null) { 
+			 Controller controller= new Controller(myFrame.buttonName,point,g);
+			 controller.drawAllShapesController(g);
+			 // Instantiate controller and ....??.....                 
+			 // Don’t forget to reset the highlighted button}
+	 }
+    
+
+	 }
+}
+	

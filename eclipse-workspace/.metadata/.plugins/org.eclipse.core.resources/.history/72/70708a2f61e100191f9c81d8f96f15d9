@@ -1,0 +1,40 @@
+package DesignPattern;
+
+import java.awt.Graphics;
+import java.awt.Point;
+
+public class Controller {
+	
+	//public Controller() {}
+	
+
+	
+	//Circle circle=new Circle();
+	Composite comp =new Composite();
+	//Rectangle rectangle= new Rectangle();
+	
+	public Controller(String str, Point point,Graphics g) {
+		if(str.contentEquals("Circle")) {
+			Circle circle=new Circle(point.x,point.y);
+			//u can pass 2 parameters here x and y
+			//no need to use x and y of composite class
+			
+			comp.addShapeNPoint(circle, point);
+			//this.drawAllShapesController(g);
+		}
+		else
+		{
+			
+			Rectangle rectangle= new Rectangle(point.x,point.y);
+			comp.addShapeNPoint(rectangle, point);
+			//this.drawAllShapesController(g);
+			
+		}
+	}
+	
+	public void drawAllShapesController(Graphics g) 
+	{
+		comp.drawAllShapes(g);
+	}
+	
+}

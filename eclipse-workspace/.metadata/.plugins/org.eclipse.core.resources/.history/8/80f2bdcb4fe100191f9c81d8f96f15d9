@@ -1,0 +1,13 @@
+package DesignPattern;
+
+import java.awt.Point;
+
+public class Controller {
+
+	
+	public Controller(String str, Point point) {
+		
+	}
+
+	
+}

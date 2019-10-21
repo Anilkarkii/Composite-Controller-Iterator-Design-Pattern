@@ -1,0 +1,19 @@
+package DesignPattern;
+
+import java.awt.Point;
+
+public class Controller {
+	
+	public Point point=null;
+	Composite comp =new Composite();
+	public Controller() {
+		
+	}
+
+	public void addOnController(Shape shape, Point point) {
+		Circle circle=new Circle();
+		//point=new Point(x,y);
+		System.out.println(point);
+		comp.addShapeNPoint(circle, point);
+	}
+}

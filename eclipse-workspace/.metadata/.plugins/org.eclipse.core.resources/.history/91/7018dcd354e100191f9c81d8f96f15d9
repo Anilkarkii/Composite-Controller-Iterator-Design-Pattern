@@ -1,0 +1,32 @@
+package DesignPattern;
+
+import java.awt.Point;
+
+public class Controller {
+
+	int X;
+	int Y;
+	//Circle circle=new Circle();
+	Composite comp =new Composite();
+	//Rectangle rectangle= new Rectangle();
+	
+	public Controller(String str, Point point) {
+		if(str.contentEquals("Circle")) {
+			Circle circle=new Circle();
+			//u can pass 2 parameters here x and y
+			//no need to use x and y of composite class
+			
+			comp.addShapeNPoint(circle, point);
+			this.X=point.x;
+			this.Y=point.y;
+			
+		}
+		else
+		{
+			
+			Rectangle rectangle= new Rectangle();
+			comp.addShapeNPoint(rectangle, point);
+		}
+	}
+	
+}

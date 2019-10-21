@@ -1,0 +1,93 @@
+package Circle;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+import java.awt.*;
+import java.awt.ActiveEvent.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ComponentListener;
+import java.awt.event.MouseEvent;
+
+
+
+
+public class createFrame extends JFrame{
+	
+	//public static Object panel;
+
+	public createFrame() {
+		
+		setTitle("HW1 GUI");
+		setSize(800,500);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		
+	}
+
+	public static void main(String[] args) {
+		
+		//Create jframe
+				JFrame frame=new createFrame();
+				circlePanel circlepan= new circlePanel();
+				frame.setContentPane(circlepan);
+				circlepan.addMouseListener(circlepan);
+				
+	
+		
+		//Create jpanel set background white
+		//JPanel panel=new JPanel();
+		//panel.setBackground(Color.WHITE);
+
+		
+		
+		//Create borderlayout and add panel2 to first panel's west
+		BorderLayout b=new BorderLayout();
+		JPanel panel2= new JPanel();
+		panel2.setBackground(Color.GRAY);
+		circlepan.setLayout(b);
+		
+		
+		
+		
+		//Create buttons
+		Button button1=new Button("Circle");
+		panel2.add(button1);  
+		button1.setPreferredSize(new Dimension(100,50));
+		button1.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("Circle");
+				
+			}
+			
+		});
+		
+		Button button2=new Button("Box");
+		panel2.add(button2);
+		button2.setPreferredSize(new Dimension(100,50));
+		button2.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("Rectangle");
+				
+			}
+			
+		});
+		
+		circlepan.add(panel2,BorderLayout.WEST);
+		
+		//frame.add(panel);
+		frame.show();
+		
+	
+		
+		
+	}
+
+	
+}

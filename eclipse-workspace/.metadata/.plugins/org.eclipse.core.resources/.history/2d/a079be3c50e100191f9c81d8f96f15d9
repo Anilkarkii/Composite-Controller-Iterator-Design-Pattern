@@ -1,0 +1,18 @@
+package DesignPattern;
+
+import java.awt.Point;
+
+public class Controller {
+
+	Circle circle=new Circle();
+	Composite comp =new Composite();
+	
+	public Controller(String str, Point point) {
+		if(str.contentEquals("Circle")) {
+			
+		}
+		
+	}
+
+	
+}

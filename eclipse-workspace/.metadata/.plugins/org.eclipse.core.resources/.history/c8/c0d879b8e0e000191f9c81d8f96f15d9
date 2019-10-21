@@ -1,0 +1,38 @@
+package DesignPattern;
+
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+import javax.swing.JPanel;
+
+public class drawingPanel extends JPanel implements MouseListener
+{
+		
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		int x=e.getX();
+		int y=e.getY();
+		
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {}
+	@Override
+	public void mouseEntered(MouseEvent e) {}
+	@Override
+	public void mouseExited(MouseEvent e) {}
+	
+}
+	
+		
+	
+
+	

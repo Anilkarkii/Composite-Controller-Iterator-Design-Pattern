@@ -1,0 +1,26 @@
+package DesignPattern;
+
+import java.awt.Point;
+
+public class Controller {
+
+	//Circle circle=new Circle();
+	Composite comp =new Composite();
+	//Rectangle rectangle= new Rectangle();
+	
+	public Controller(String str, Point point) {
+		if(str.contentEquals("Circle")) {
+			Circle circle=new Circle();
+			Composite comp =new Composite();
+			comp.addShapeNPoint(circle, point);
+			
+		}
+		else
+		{
+			Composite comp =new Composite();
+			Rectangle rectangle= new Rectangle();
+			comp.addShapeNPoint(rectangle, point);
+		}
+	}
+	
+}

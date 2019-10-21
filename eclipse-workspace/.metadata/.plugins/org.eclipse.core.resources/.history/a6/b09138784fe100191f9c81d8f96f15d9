@@ -1,0 +1,13 @@
+package DesignPattern;
+
+
+
+public class Controller {
+
+	Composite comp =new Composite();
+	public Controller(String str, Point point) {
+		
+	}
+
+	
+}

@@ -1,0 +1,43 @@
+package DesignPattern;
+
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+import javax.swing.JPanel;
+
+public class drawingPanel extends JPanel implements MouseListener
+{
+		int isSelected=0;
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		int x=e.getX();
+		int y=e.getY();
+		if(myFrame.shapeSelected=="Circle") {
+			Circle circle=new Circle();
+		}
+		if(myFrame.shapeSelected=="Rectangle") {
+			Rectangle rectangle= new Rectangle();
+		}
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {}
+	@Override
+	public void mouseEntered(MouseEvent e) {}
+	@Override
+	public void mouseExited(MouseEvent e) {}
+	
+}
+	
+		
+	
+
+	

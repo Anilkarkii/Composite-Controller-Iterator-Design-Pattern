@@ -1,0 +1,61 @@
+package DesignPattern;
+
+import java.awt.Graphics;
+import java.awt.Point;
+import java.lang.reflect.Constructor;
+
+public class Controller {
+	
+	
+	Shape comp =new Composite();
+	
+	
+	public Controller(String str, Point point,Graphics g){
+		System.out.println(str);
+		/*
+		Shape shp=this.getInstance(str);
+		shp.X=point.x;
+		shp.Y=point.y;
+		
+		System.out.println(point.x);
+		
+	
+		
+		if(str.equals("Circle")) {
+			Shape circle=new Circle(point.x,point.y);
+			comp.addShapeNPoint(circle);
+			
+		}
+		else
+		{
+			Shape rectangle= new Rectangle(point.x,point.y);
+			comp.addShapeNPoint(rectangle);
+			
+		}
+		*/
+	
+		
+	}
+	
+	public void drawAllShapesController(Graphics g) 
+	{
+		comp.drawAllShapes(g);
+	}
+	
+	public Shape getInstance(String str)
+	{
+		try {
+			Class<?> cls= Class.forName("DesignPattern."+str);
+			
+			
+			Shape s=(Shape)cls.newInstance();
+			return s;
+		
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println("Come on man!");
+		}
+		return null;
+	}
+	
+}

@@ -1,0 +1,51 @@
+package DesignPattern;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.Border;
+
+public class myFrame extends JFrame {
+	
+public myFrame() {
+		
+		setTitle("HW1 GUI");
+		setSize(800,500);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+	}
+
+	public static void main(String[] args) {
+		
+		JFrame frame= new myFrame();
+		JPanel buttonPanel= new JPanel();
+		
+		
+		Border buttonBorder=BorderFactory.createLineBorder(Color.BLACK,5,true);
+		JButton circleButton= new JButton("Cirlce");
+		circleButton.setFont(new Font("Arial",Font.BOLD,40));
+		circleButton.setPreferredSize(new Dimension(200,70));
+		circleButton.setBorder(buttonBorder);
+		JButton rectangleButton= new JButton("Rectangle");
+		
+		
+		
+		buttonPanel.add(circleButton);
+		buttonPanel.add(rectangleButton);
+		buttonPanel.setBackground(Color.GRAY);
+		
+		frame.add(buttonPanel, BorderLayout.WEST);
+		
+	
+		frame.show();
+		
+
+	}
+
+}

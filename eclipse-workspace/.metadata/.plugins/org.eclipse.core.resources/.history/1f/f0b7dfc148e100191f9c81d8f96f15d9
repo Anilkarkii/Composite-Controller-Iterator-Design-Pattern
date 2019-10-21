@@ -1,0 +1,63 @@
+package DesignPattern;
+
+import java.awt.Graphics;
+import java.awt.Point;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+import javax.swing.JPanel;
+
+public class drawingPanel extends JPanel implements MouseListener
+{
+	public Point point=null;
+	Composite comp =new Composite();
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		
+		int x=e.getX();
+		int y=e.getY();
+		if(myFrame.shapeSelected=="Circle") {
+			
+			Circle circle=new Circle();
+			point=new Point(x,y);
+			System.out.println(point);
+			comp.addShapeNPoint(circle, point);
+			
+			
+		}
+		if(myFrame.shapeSelected=="Rectangle") {
+			Rectangle rectangle= new Rectangle();
+			point=new Point(x,y);
+			System.out.println(point);
+			comp.addShapeNPoint(rectangle, point);
+			
+		}
+		
+	}
+	
+	
+    @Override
+    public void paintComponent(Graphics g){
+
+        super.paintComponent(g);
+
+        
+    }
+    
+	
+
+	@Override
+	public void mousePressed(MouseEvent e) {}
+	@Override
+	public void mouseReleased(MouseEvent e) {}
+	@Override
+	public void mouseEntered(MouseEvent e) {}
+	@Override
+	public void mouseExited(MouseEvent e) {}
+	
+}
+	
+		
+	
+
+	

@@ -1,0 +1,88 @@
+package DesignPattern;
+
+import java.awt.Graphics;
+import java.awt.Point;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+import javax.swing.JPanel;
+
+public class drawingPanel extends JPanel implements MouseListener
+{
+	//Circle circle =new Circle();
+	
+	public Point point=null;
+	//Composite comp =new Composite();
+	//Shape shape=new Shape();
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		//Graphics g = null;
+		int x=e.getX();
+		int y=e.getY();
+		point=new Point(x,y);
+	/*
+		if(myFrame.shapeSelected=="Circle") {
+			/*
+			Circle circle=new Circle();
+			point=new Point(x,y);
+			System.out.println(point);
+			comp.addShapeNPoint(circle, point);
+			
+			*//*
+			point=new Point(x,y);
+			Controller controller=new Controller("Circle",point,g);
+			
+			
+			
+		}
+		if(myFrame.shapeSelected=="Rectangle") {
+			/*Rectangle rectangle= new Rectangle();
+			point=new Point(x,y);
+			System.out.println(point);
+			comp.addShapeNPoint(rectangle, point);
+			*//*
+			point=new Point(x,y);
+			Controller controller=new Controller("Rectangle",point,g);
+		}
+		*/
+		
+		
+	}
+	
+	
+    @Override
+    public void paintComponent(Graphics g){
+
+        super.paintComponent(g);
+        Controller controller1=new Controller("Circle",point,g);
+        Controller controller2=new Controller("Rectangle",point,g);
+        controller1.drawAllShapesController(g);
+        controller2.drawAllShapesController(g);
+        
+        
+        
+/*
+        Iterator<Entry<shape, point>> it = map.entrySet().iterator();
+		while (it.hasNext()) {
+			Map.Entry<String, String> pair = (Map.Entry<String, String>) it.next();
+			System.out.println(pair.getKey() + " = " + pair.getValue());
+		}
+		*/
+    }
+    
+
+	@Override
+	public void mousePressed(MouseEvent e) {}
+	@Override
+	public void mouseReleased(MouseEvent e) {}
+	@Override
+	public void mouseEntered(MouseEvent e) {}
+	@Override
+	public void mouseExited(MouseEvent e) {}
+	
+}
+	
+		
+	
+
+	

@@ -1,0 +1,79 @@
+package DesignPattern;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.Border;
+
+public class myFrame extends JFrame {
+	
+public myFrame() {
+		
+		setTitle("HW1 GUI");
+		setSize(800,500);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+	}
+
+	public static void main(String[] args) {
+		
+		JFrame frame= new myFrame();
+		JPanel buttonPanel= new JPanel();
+		JPanel drawingAreaPanel= new drawingPanel();
+		
+		
+		Border buttonBorder=BorderFactory.createLineBorder(Color.BLACK,5,true);
+		JButton circleButton= new JButton("Cirlce");
+		circleButton.setPreferredSize(new Dimension(200,70));
+	    JButton rectangleButton= new JButton("Rectangle");
+	    rectangleButton.setPreferredSize(new Dimension(200,70));
+		
+		buttonPanel.add(circleButton);
+		buttonPanel.add(rectangleButton);
+		
+		buttonPanel.setBackground(Color.GRAY);
+		buttonPanel.setPreferredSize(new Dimension(240,500));
+		
+		frame.add(buttonPanel, BorderLayout.WEST);
+		frame.add(drawingAreaPanel);
+		
+		
+		ActionListener listener=new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+			}
+			
+		};
+	
+		circleButton.addActionListener(listener);
+		rectangleButton.addActionListener(listener);
+		String button;
+		if(circleButton.isEnabled())
+		{
+			button="circle";
+			System.out.println(button);
+		}
+		if(rectangleButton.isEnabled()) 
+		{
+			button="rectangle";
+		}
+	
+		drawingAreaPanel.addMouseListener((MouseListener) drawingAreaPanel);
+		
+	
+		frame.show();
+		
+
+	}
+
+}

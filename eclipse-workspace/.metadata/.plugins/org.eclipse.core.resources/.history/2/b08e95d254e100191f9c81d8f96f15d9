@@ -1,0 +1,18 @@
+package DesignPattern;
+
+import java.awt.Color;
+import java.awt.Graphics;
+
+public class Rectangle extends Shape {
+	
+	@Override
+	public void draw(Graphics g) {
+	
+		//g.setColor(Color.BLACK);
+		g.drawRect(X,Y ,40, 40);
+		
+	}
+	public Rectangle() {
+		System.out.println("Rectangle constructor called.");
+	}
+}

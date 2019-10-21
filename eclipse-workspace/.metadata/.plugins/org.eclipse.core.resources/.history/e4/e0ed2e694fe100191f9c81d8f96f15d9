@@ -1,0 +1,14 @@
+package DesignPattern;
+
+import java.awt.Point;
+
+public class Controller {
+	
+	public Point point=null;
+	Composite comp =new Composite();
+	public Controller(String str, Point point) {
+		
+	}
+
+	
+}

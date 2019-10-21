@@ -1,0 +1,48 @@
+package DesignPattern;
+
+import java.awt.Graphics;
+import java.awt.Point;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
+
+
+public class Composite extends Shape{
+
+	@Override
+	public void draw(Graphics g) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public static  final Map<Shape, Point> map=new HashMap<>(); ;
+	
+	public void addShapeNPoint(Shape s,Point p) {
+		map.put(s,p);
+		
+		System.out.println("Shape and point added");
+		System.out.println(map);
+	}
+	
+	public void drawAllShapes(Graphics g) 
+	{
+		
+		Iterator hmIterator = map.entrySet().iterator(); 
+		  
+        while (hmIterator.hasNext()) { 
+        	Map.Entry mapElement = (Map.Entry)hmIterator.next(); 
+        	Shape shape=(Shape) mapElement.getKey();
+        	shape.draw();
+        	
+		
+        }
+	}
+
+	/*
+	public static void print(Map <Shape, Point> map) {
+		System.out.println(map);
+		
+	}*/
+}

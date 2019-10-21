@@ -1,0 +1,46 @@
+package DesignPattern;
+
+import java.awt.Graphics;
+import java.awt.Point;
+import java.lang.reflect.Constructor;
+
+public class Controller {
+	
+	
+	Shape shape =new Composite();
+	
+	
+	public Controller(String str, Point point,Graphics g){
+		System.out.println(str);
+		
+		try {
+			
+			
+			
+			Class<?> cls= Class.forName("DesignPattern."+str);
+			Constructor<?> dogConstructor = cls.getConstructor(int.class, int.class);
+	        Object dog = dogConstructor.newInstance(point.x,point.y);
+			Shape s=(Shape)dog;
+			shape.addShapeNPoint(s);
+			
+		
+		
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println("Come on man!");
+		}
+		
+		
+		
+	
+		
+	}
+	
+	public void drawAllShapesController(Graphics g) 
+	{
+		shape.drawAllShapes(g);
+	}
+	
+	
+	
+}
